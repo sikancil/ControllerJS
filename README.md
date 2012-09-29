@@ -2,6 +2,13 @@ ControllerJS-PubSub-StateControl
 ================================
 
 ControllerJS PubSub-StateControl help in the management of web applications 
+Benchmarks
+-------------
+[PubSub Methods](http://jsperf.com/my-pubsub-lib/6)
+
+[ControllerJS Vs other PubSub Libs](http://jsperf.com/pubsubjs-vs-jquery-custom-events/57)
+
+<img src='http://s16.postimage.org/h3kgrxkat/benchmarks.png' />
 
 PubSub API
 -------------
