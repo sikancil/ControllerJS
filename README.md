@@ -1,7 +1,13 @@
 ControllerJS-PubSub-StateControl
 ================================
 
-ControllerJS PubSub-StateControl help in the management of web applications 
+ControllerJS PubSub-StateControl help in the management of web applications.
+
+Dependencies
+-------------
+[JSFace](https://github.com/tnhu/jsface)
+
+
 Benchmarks
 -------------
 [PubSub Methods](http://jsperf.com/my-pubsub-lib/6)
