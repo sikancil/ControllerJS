@@ -1,13 +1,4 @@
 /**
- * Created with JetBrains WebStorm.
- * User: Brian McCann
- * Date: 9/29/12
- * Time: 2:39 PM
- * To change this template use File | Settings | File Templates.
- */
-
-
-/**
  * @Class Utils
  *
  * Methods for data manipulation etc that don't belong in any other object,
@@ -24,16 +15,14 @@ var Utils = Class({
      * @return {Boolean}
      */
     asteriskEnd: function ( string ) {
-        "use strict";
         return ( string.slice( string.length - 1) === '*' );
     },
     /**
      *
      * @param string
-     * @return {*|Blob}
+     * @return {String/Boolean}
      */
     removeAsteriskEnd: function ( string ) {
-        "use strict";
         if ( this.asteriskEnd( string ) ) {
             return string.slice( 0, string.length - 1 );
         } else {
@@ -41,6 +30,173 @@ var Utils = Class({
         }
     }
 });
+
+
+var ActionStack = new Class({
+    constructor: function(defaultAction, pairedAction) {
+        this.stack = [];
+        this.channels = {};
+
+        if(typeof defaultAction === 'function')
+            this.defaultAction = defaultAction;
+        else
+            this.defaultAction = undefined;
+
+        if(typeof pairedAction === 'function')
+            this.pairedAction = pairedAction;
+        else
+            this.pairedAction = undefined;
+    },
+    addToStack: function(data) {
+        if (typeof data.event === 'function' || typeof data.event === 'string') {
+
+            var id = this.stack.length;
+            this.stack.push({ id: id, event: data.event, data: data.data, context: data.context });
+            return id;
+        } else {
+            return -1;
+        }
+    },
+    removeFromStack: function(stackId) {
+        if (this.stack[stackId] && this.stack[stackId].id === stackId) {
+            this.stack[stackId] = null;
+            return stackId;
+        } else {
+            return false;
+        }
+    },
+    startStack: function() {
+        this.executeStack();
+    },
+    setDefaultAction: function(newDefaultAction) {
+        this.defaultAction = newDefaultAction;
+    },
+    setPairedAction: function(newPairedAction) {
+        this.pairedAction = newPairedAction;
+    },
+    clearStack: function(returnStack) {
+        if (!returnStack)
+            returnStack = false;
+
+        if (returnStack === true && returnStack === false)
+            return;
+
+        if(this.stack.length === 0) {
+            if (returnStack === true)
+                return this.stack;
+            else if (returnStack === false)
+                return;
+        }
+
+        var oldStack = this.stack;
+        this.stack = [];
+
+        if (returnStack === true)
+            return this.stack;
+    },
+    runStack: function(stackId) {
+        var event = this.stack[stackId].event,
+            success = 0;
+
+        if (typeof event === "string") {
+
+            if(!this.stack[stackId].context) {
+                PubSub.publish(event, this.stack[stackId].data);
+                success = this.removeFromStack(stackId);
+
+                if (this.pairedAction)
+                    this.pairedAction.call(this.stack[stackId].context, this.stack[stackId].data);
+            }
+        } else if(typeof event === "function") {
+
+            if (this.stack[stackId].context) {
+                event.call(this.stack[stackId].context, this.stack[stackId].data);
+
+                if (this.pairedAction)
+                    this.pairedAction.call(this.stack[stackId].context, this.stack[stackId].data);
+            } else {
+                event(this.stack[stackId].data);
+
+                if (this.pairedAction)
+                    this.pairedAction(this.stack[stackId].data);
+            }
+
+            success = this.removeFromStack(stackId);
+        } else {
+            return false;
+        }
+
+        if(success === stackId) {
+            return stackId;
+        }
+    },
+    executeStack: function(stackId) {
+        switch(true) {
+            case (stackId > 0):
+                if (this.stack[stackId]) {
+                    return this.runStack(stackId);
+                } else {
+                    this.executeStack(stackId - 1);
+                }
+                break;
+            case (stackId === 0 || stackId === -1):
+                if (this.stack[0]) {
+                    return this.runStack(stackId);
+                } else {
+                    if (this.defaultAction)
+                        this.defaultAction();
+                    return;
+                }
+                break;
+            case (stackId === -1):
+                var nullArr = true, i = this.stack.length - 1;
+                for (; i > -1; i--) {
+                    if (this.stack[i]) {
+                        nullArr = false;
+                        break;
+                    }
+                }
+                if(i + 1 === 0 || nullArr === true) {
+                    if (this.defaultAction)
+                        this.defaultAction();
+                }
+
+                return false;
+                break;
+
+            case (!stackId && stackId !== 0):
+                var start = this.stack.length - 1;
+                if(start !== 0 && !start) {
+                    start = -1;
+                }
+
+                this.executeStack(start);
+                break;
+        }
+    },
+    opened: function(chan, func, data, context) {
+        if(this.channels && this.channels[chan] && this.stack[this.channels[chan]]) {
+            this.removeFromStack(this.channels[chan]);
+        }
+
+        this.channels[chan] = this.addToStack({ event: func, data: data, context: context });
+        return this.channels[chan];
+    },
+    close: function(chan) {
+        if(this.channels && this.channels[chan] > -1) {
+            this.executeStack(this.channels[chan]);
+            this.channels[chan] = -1;
+        }
+    },
+    closed: function(chan) {
+        if(this.channels && this.channels[chan] > -1) {
+            this.removeFromStack(this.channels[chan]);
+            this.channels[chan] = -1;
+        }
+    }
+});
+
+
 /**
  * @Class State
  *
@@ -49,16 +205,15 @@ var Utils = Class({
  * a random underscore like toolkit
  *
  */
-var State = Class({
+var State = new Class({
     /**
-     *
      * @param state {String}
      * @param cb1 {Function}
      * @param cb2 {Function}
-     */
+     **/
     constructor: function ( state, cb1, cb2 ) {
-        "use strict";
         this.state = state;
+        this.secondState = '';
         if( cb1 ) {
             this.initCallback = cb1;
         }
@@ -67,32 +222,26 @@ var State = Class({
         }
     },
     deleteInitCB: function () {
-        "use strict";
         this.initCallback = null;
     },
     deleteEndCB: function () {
-        "use strict";
         this.endCallback = null;
     },
     setInitCB: function ( newCallback ) {
-        "use strict";
-        this.initCallback = newCallback;
-    },
-    setEndCB: function ( newCallback ) {
-        "use strict";
-        this.endCallback = newCallback;
-    },
-    /**
-     *
-     * @param newName
-     *
-     * @goal changes the name of the state to correct typos etc without losing subscribers
-     */
-    changeName: function ( newName ) {
-        "use strict";
-        this.state = newName;
-    }
-});
+            this.initCallback = newCallback;
+        },
+        setEndCB: function ( newCallback ) {
+            this.endCallback = newCallback;
+        },
+        /**
+         * @param newName
+         * @goal changes the name of the state to correct typos etc without losing subscribers
+         **/
+        changeName: function ( newName ) {
+            this.state = newName;
+        }
+    });
+
 /**
  *
  * @type StateMachine {Class}
@@ -102,28 +251,34 @@ var State = Class({
  */
 var StateMachine = Class({
     $singleton: true,
-    /**
-     * @goal initiate the state machine
-     */
     main: function () {
-        "use strict";
-        // Will be used by other functions to help them determine what they might do
-        this.appState = 'default';
-        // The available states for the app as well as their callbacks
-        this.appStates = {};
         this.modules = {};
-        this.moduleList = [];
+        this.escapeStack = new ActionStack(function() {
+            StateMachine.escapeStack.stack = [];
 
+            var focusedInput = $('input:focus, select:focus, textarea:focus');
+            if(focusedInput.length === 1) {
+
+                focusedInput.first().trigger('blur');
+
+            } else if (focusedInput.length > 1) {
+
+                focusedInput.each(function(idx, el) {
+                    el.trigger('blur');
+                });
+
+            }
+
+            $('body').trigger('click');
+        });
     },
     /**
-     *
      * @param module {String}
      * @param states {Array}
      * @param currState {String}
      * @return {Boolean}
-     */
+     **/
     registerModule: function ( module, states, currState ) {
-        "use strict";
         if( !this.modules[ module ] ) {
             this.modules[ module ] = {};
             this.modules[ module ].name = module;
@@ -138,14 +293,12 @@ var StateMachine = Class({
                 this.createState( module, states[i].state, states[i].initCB, states[i].endCB );
             }
 
-
             return true;
         } else {
             return false;
         }
     },
     /**
-     *
      * @param module
      * @param state
      * @param cb1
@@ -153,7 +306,6 @@ var StateMachine = Class({
      * @return {Boolean}
      */
     createState: function ( module, state, cb1, cb2 ) {
-        "use strict";
         if( !this.modules[ module ].states[ state ] ) {
             this.modules[ module ].states[ state ] = new State( state, cb1, cb2 );
             return true;
@@ -166,7 +318,6 @@ var StateMachine = Class({
      * @param module
      */
     deleteModule: function ( module ) {
-        "use strict";
         if( this.modules[ module ] ) {
             delete this.modules[ module ];
         }
@@ -183,8 +334,8 @@ var StateMachine = Class({
      * @goal Change the state of the module as well as
      */
     changeState: function ( module, newState, data ) {
-        "use strict";
         var oldState = this.modules[ module ].state;
+
         if ( this.modules[ module ].states[ oldState ] ) {
             if( this.modules[ module ].states[ oldState ].endCallback ) {
                 if( data ) {
@@ -205,51 +356,38 @@ var StateMachine = Class({
                 }
             }
         }
-    }
-});
-
-/**
- * @Class Utils
- *
- * Methods for data manipulation etc that don't belong in any other object,
- * a random underscore like toolkit
- *
- * @type {*}
- */
-var Utils = Class({
-    $singleton: true,
-    noop: function() {},
-    /**
-     *
-     * @param string
-     * @return {Boolean}
-     */
-    asteriskEnd: function ( string ) {
-        "use strict";
-        return ( string.slice( string.length - 1) === '*' );
     },
-    /**
-     *
-     * @param string
-     * @return {*|Blob}
-     */
-    removeAsteriskEnd: function ( string ) {
-        "use strict";
-        if ( this.asteriskEnd( string ) ) {
-            return string.slice( 0, string.length - 1 );
+    getSecondState: function ( module ) {
+        return this.modules[ module ].secondState;
+    },
+    setSecondState: function ( module, newState, data ) {
+        if ( this.modules[module].secondState === '' ) {
+            this.modules[module].secondState = newState;
+            if( this.modules[module].states[newState] ) {
+                this.modules[module].states[newState].initCallback( data );
+            }
         } else {
-            return false;
+            var currState = this.modules[module].secondState;
+
+            if( this.modules[module].states[currState] ) {
+                // Ending Callback
+                this.modules[module].states[currState].endCallback( data );
+
+                // Change State AND Init Callback if available
+                this.modules[module].secondState = newState;
+                if( this.modules[module].states[newState] ) {
+                    this.modules[module].states[newState].initCallback( data );
+                }
+            }
         }
     }
 });
 
 var PubSub = Class(function () {
-    "use strict";
     /**
-     *
-     * @param string {String}
-     * @return {*}
-     */
+     ** @param string {String}
+     ** @return {*}
+     **/
     var parseChannel = function ( string ) {
         if ( string.length ) {
             if( Utils.asteriskEnd( string ) ) {
@@ -267,28 +405,23 @@ var PubSub = Class(function () {
         $singleton: true,
         $statics: {
             /**
-             *
-             * @param fn {Function}
-             */
+             ** @param fn {Function}
+             **/
             async: function ( fn ) {
                 setTimeout(function() { fn(); }, 0 );
             },
             /**
-             *
-             * @param channel {String}
-             * @return {Boolean}
-             */
+             ** @param channel {String}
+             ** @return {Boolean}
+             **/
             hasSubscribers: function (channel) {
                 return ( (this.channels[channel].subscribers).length > 0 );
             }
         },
         /**
-         *
-         * @param channel {String}
-         *
-         * @goal creates a new channel as well as any subchannels
-         *
-         */
+         ** @param channel {String}
+         ** @goal creates a new channel as well as any subchannels
+         **/
         createChannel: function ( channel ) {
             if ( this.channels[ channel ] ) {
                 return this;
@@ -308,13 +441,11 @@ var PubSub = Class(function () {
             }
         },
         /**
-         *
-         * @param channel {String}
-         * @param data {JSON/Object}
-         */
+         ** @param channel {String}
+         ** @param data {JSON/Object}
+         **/
         deliver: function( channel, data ) {
             var len = this.channels[ channel ].subscribers.length, i = 0;
-
             for ( i = 0; i < len; i++ ) {
                 if ( this.channels[ channel ].subscribers[i] ) {
                     this.channels[ channel ].subscribers[i].callback( data );
@@ -327,19 +458,22 @@ var PubSub = Class(function () {
          * @param data {JSON/Object}
          */
         publish: function ( channel, data ) {
-            var theChannel = this.channels[ channel ];
-            if ( theChannel.subscribers.length ) {
-                var len = theChannel.subscribers.length, i;
+            if( !this.channels[ channel ] || !this.channels[ channel ].subscribers ) {
+                return;
+            }
+
+            if ( this.channels[ channel ].subscribers.length ) {
+                var len = this.channels[ channel ].subscribers.length, i;
 
                 for ( i = 0; i < len; i++ ) {
-                    if ( theChannel.subscribers[i] ) {
-                        theChannel.subscribers[i].callback( data );
+                    if ( this.channels[ channel ].subscribers[i] ) {
+                        this.channels[ channel ].subscribers[i].callback( data );
                     }
                 }
-                if ( theChannel.subChannels.length ) {
-                    len = theChannel.subChannels.length;
+                if ( this.channels[ channel ].subChannels.length ) {
+                    len = this.channels[ channel ].subChannels.length;
                     for ( i = 0; i < len; i++ ) {
-                        this.deliver( theChannel.subChannels[i], data );
+                        this.deliver( this.channels[ channel ].subChannels[i], data );
                     }
                 }
             }
@@ -350,20 +484,19 @@ var PubSub = Class(function () {
          * @param cb {Function}
          * @return {Number}
          */
-        subscribe: function ( channel, cb ) {
-            var theChannel = this.channels[ channel ];
-            if( Utils.asteriskEnd( channel ) ) {
+        subscribe: function (channel, cb) {
+            if(Utils.asteriskEnd( channel )) {
                 channel = parseChannel( channel );
             }
 
-            if( !theChannel ) {
-                return null;
+            if(!this.channels[ channel ]) {
+                this.createChannel(channel);
             }
 
-            if ( theChannel.subscribers ) {
-                theChannel.subscribers.push({ callback: cb });
+            if (this.channels[channel].subscribers) {
+                this.channels[channel].subscribers.push({callback: cb });
 
-                return theChannel.subscribers.length - 1;
+                return this.channels[channel].subscribers.length - 1;
             } else {
                 return null;
             }
@@ -375,9 +508,8 @@ var PubSub = Class(function () {
          * @return {Number}
          */
         unsubscribe: function ( channel, id ) {
-            var theChannel = this.channels[ channel ];
-            if ( theChannel.subscribers[id] ) {
-                theChannel.subscribers[ id ] = null;
+            if ( this.channels[ channel ].subscribers[id] ) {
+                this.channels[ channel ].subscribers[ id ] = 0;
 
                 return this;
             } else {
@@ -465,6 +597,133 @@ var Channel = Class({
                 }
             }
             this.subChannels.push(str);
+        }
+    }
+});
+
+var TaskQueue = new Class(function() {
+    //Private
+    return {
+        queue: [],
+        data: {},
+        main: function() {
+
+        },
+        constructor: function(qOrder, qData, start) {
+            // theTimeout prevents the tasks from never ending or taking forever
+            if (typeof qOrder === "array" && typeof qData === "object") {
+                this.queue = qOrder;
+                this.data = qData;
+
+                if(start) {
+                    this.start();
+                }
+            }
+        },
+        addTask: function(task) {
+            if(task.async === true) {
+                this.data[task.name] = { task: task.task, params: task.params, async: task.async, timeout: task.timeout };
+            } else if(task.async === false) {
+                this.data[task.name] = { task: task.task, params: task.params, async: task.async };
+            }
+
+            return this;
+        },
+        removeTask: function(name) {
+            if(this.data[name]) {
+                this.data[name] = undefined;
+            }
+
+            var len = this.queue.length, i = 0;
+            for (i = 0; i < len; i++) {
+                if(this.queue[i] === name) {
+                    this.queue.splice(i, 1);
+                }
+            }
+
+            return this;
+        },
+        enQ: function(name) {
+            if(this.data[name]) {
+                this.queue.push(name);
+            }
+
+            if (this.active && this.queue.length === 1) {
+                this.start(0);
+            }
+
+            return this;
+        },
+        deQ: function(name) { // Removes the first with the queue name
+
+            var loc = this.queue.indexOf(name);
+            if (loc > -1) {
+                this.queue.splice(loc, 1);
+            }
+
+            return this;
+        },
+        deQLast: function(name) {
+            var loc = this.queue.lastIndexOf(name);
+            if (loc > -1) {
+                this.queue.splice(loc, 1);
+            }
+
+            return this;
+        },
+        start: function() {
+            if(this.queue[0]) {
+                var that = this,
+                    name = this.queue[0],
+                    task = this.data[name];
+
+                if (task && task.task) {
+
+                    if(task.async === false) {
+                        this.active = true;
+                    } else {
+                        this.active = false;
+                    }
+
+                    if(task.params)  {
+                        task.task(task.params);
+                        this.nextTask(0);
+                    } else {
+                        task.task();
+                        this.nextTask(0);
+                    }
+                }
+            } else {
+                this.active = true; // There is nothing waiting in the queue
+            }
+
+        },
+        stop: function() {
+            this.active = false;
+        },
+        clearQueue: function() {
+            this.queue = [];
+
+            return this;
+        },
+        nextTask: function(i) {
+            this.queue.splice(i, 1);
+
+            if(this.queue[i] && this.active) {
+                var name = this.queue[i];
+                if (this.data[name] && this.data[name].task) {
+                    if(this.data[name].params)  {
+                        this.data[name].task(this.data[name].params);
+                        this.nextTask(i);
+                    } else {
+                        this.data[name].task();
+
+                        this.nextTask(i);
+                    }
+                }
+            } else {
+
+            }
         }
     }
 });
