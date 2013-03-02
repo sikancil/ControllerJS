@@ -1,3 +1,8 @@
+Coming Soon
+===============================
+Extensive documentation on everything Stack, Queues, PubSub and the StateMachine
+create by JSDoc.
+
 ControllerJS-PubSub-StateControl
 ================================
 
