@@ -1,0 +1,893 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - HS.Controller.StateMachine</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a>
+| <a href="../files.html">File Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/HS.html">HS</a></li>
+	
+	<li><a href="../symbols/HS.Classes.html">HS.Classes</a></li>
+	
+	<li><a href="../symbols/HS.Classes.ActionStack.html">HS.Classes.ActionStack</a></li>
+	
+	<li><a href="../symbols/HS.Classes.Channel.html">HS.Classes.Channel</a></li>
+	
+	<li><a href="../symbols/HS.Classes.State.html">HS.Classes.State</a></li>
+	
+	<li><a href="../symbols/HS.Controller.html">HS.Controller</a></li>
+	
+	<li><a href="../symbols/HS.Controller.PubSub.html">HS.Controller.PubSub</a></li>
+	
+	<li><a href="../symbols/HS.Controller.StateMachine.html">HS.Controller.StateMachine</a></li>
+	
+	<li><a href="../symbols/HS.Utils.html">HS.Utils</a></li>
+	
+	<li><a href="../symbols/HS.Utils.Controller.html">HS.Utils.Controller</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class HS.Controller.StateMachine
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				
+			
+				StateMachine is used for controlling the states of widgets and determining the outcome of events based on these states
+				
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/_Users_brianmccann_hs-app_site_js_app_controller.js.html">controller.js</a>.
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class HS.Controller.StateMachine.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/HS.Controller.StateMachine.html#constructor">HS.Controller.StateMachine</a></b>()
+							</div>
+							<div class="description">Manages the App and Modules States and the callbacks associated with them easier to manage
+             and also furthers the abstraction of the application as a whole.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class HS.Controller.StateMachine.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/HS.Controller.StateMachine.html#appState">appState</a></b>
+								</div>
+								<div class="description">Describes the current state of the application.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/HS.Controller.StateMachine.html#escapeStack">escapeStack</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/HS.Controller.StateMachine.html#modules">modules</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class HS.Controller.StateMachine.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.StateMachine.<b><a href="../symbols/HS.Controller.StateMachine.html#.changeState">changeState</a></b>(module, newState, data)
+								</div>
+								<div class="description">Changes the state of the module as well as triggers the state change callbacks for the 2 states involved</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.StateMachine.<b><a href="../symbols/HS.Controller.StateMachine.html#.createState">createState</a></b>(module, state, cb1, cb2)
+								</div>
+								<div class="description">This creates a state for a specified module.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.StateMachine.<b><a href="../symbols/HS.Controller.StateMachine.html#.deleteModule">deleteModule</a></b>(module)
+								</div>
+								<div class="description">deletes the module and all related data in it JS object.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.StateMachine.<b><a href="../symbols/HS.Controller.StateMachine.html#.getSecondState">getSecondState</a></b>(module)
+								</div>
+								<div class="description">Get a secondary state for modules, if it exists, to allow for more advanced state management</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.StateMachine.<b><a href="../symbols/HS.Controller.StateMachine.html#.getState">getState</a></b>(module)
+								</div>
+								<div class="description">gets the state of the module name passed in the first argument</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.StateMachine.<b><a href="../symbols/HS.Controller.StateMachine.html#.registerModule">registerModule</a></b>(module, states, currState)
+								</div>
+								<div class="description">This registers a modules with the statemachine.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.StateMachine.<b><a href="../symbols/HS.Controller.StateMachine.html#.setSecondState">setSecondState</a></b>(module, newState, data)
+								</div>
+								<div class="description">Sets the secondary state for the modules specified, with a newState and data for the callbacks initialized</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>HS.Controller.StateMachine</b>()
+				</div>
+				
+				<div class="description">
+					Manages the App and Modules States and the callbacks associated with them easier to manage
+             and also furthers the abstraction of the application as a whole.
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">Requires:</dt>
+						
+							<dd>Class</dd>
+						
+							<dd><a href="../symbols/HS.Classes.State.html">HS.Classes.State</a></dd>
+						
+							<dd><a href="../symbols/HS.Classes.ActionStack.html">HS.Classes.ActionStack</a></dd>
+						
+						</dl>
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="appState"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>appState</b>
+					
+					</div>
+					<div class="description">
+						Describes the current state of the application. Very general state.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="escapeStack"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/HS.Classes.ActionStack.html">HS.Classes.ActionStack</a>}</span>
+					<b>escapeStack</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="modules"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>modules</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".changeState"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Void}</span>
+					<span class="light">HS.Controller.StateMachine.</span><b>changeState</b>(module, newState, data)
+					
+					</div>
+					<div class="description">
+						Changes the state of the module as well as triggers the state change callbacks for the 2 states involved
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>module</b>
+									
+								</dt>
+								<dd>The module that will be changing its state</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>newState</b>
+									
+								</dt>
+								<dd>The new state that the module will be using - Must be in states array from registerModule</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>data</b>
+									
+								</dt>
+								<dd>The module data</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Void}</span> </dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".createState"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Boolean}</span>
+					<span class="light">HS.Controller.StateMachine.</span><b>createState</b>(module, state, cb1, cb2)
+					
+					</div>
+					<div class="description">
+						This creates a state for a specified module.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>module</b>
+									
+								</dt>
+								<dd>- The module that will be changing its state</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>state</b>
+									
+								</dt>
+								<dd>- The name of the state the module is in</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Function}</span> <b>cb1</b>
+									
+								</dt>
+								<dd>- Callback for when the state starts</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Function}</span> <b>cb2</b>
+									
+								</dt>
+								<dd>- Callback for when the state stops</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> Success</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".deleteModule"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Void}</span>
+					<span class="light">HS.Controller.StateMachine.</span><b>deleteModule</b>(module)
+					
+					</div>
+					<div class="description">
+						deletes the module and all related data in it JS object.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>module</b>
+									
+								</dt>
+								<dd>the name of the module that will be deleted</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Void}</span> </dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getSecondState"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String|Boolean}</span>
+					<span class="light">HS.Controller.StateMachine.</span><b>getSecondState</b>(module)
+					
+					</div>
+					<div class="description">
+						Get a secondary state for modules, if it exists, to allow for more advanced state management
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>module</b>
+									
+								</dt>
+								<dd>The state will come from this module if it is available</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String|Boolean}</span> returns the secondary state of the module</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getState"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">HS.Controller.StateMachine.</span><b>getState</b>(module)
+					
+					</div>
+					<div class="description">
+						gets the state of the module name passed in the first argument
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>module</b>
+									
+								</dt>
+								<dd>The module that will be changing its state</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> returns the modules current state.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".registerModule"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Boolean}</span>
+					<span class="light">HS.Controller.StateMachine.</span><b>registerModule</b>(module, states, currState)
+					
+					</div>
+					<div class="description">
+						This registers a modules with the statemachine. The statemachine begins keeping track of the
+                 modules state and executes the callbacks associated with the changes it sees.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>module</b>
+									
+								</dt>
+								<dd>- The name of the module being registered into the system</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object[]}</span> <b>states</b>
+									
+								</dt>
+								<dd>- All the possible states - Array of Strings</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>currState</b>
+									
+								</dt>
+								<dd>- Current state of the module by name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> Success</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setSecondState"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Void|Boolean}</span>
+					<span class="light">HS.Controller.StateMachine.</span><b>setSecondState</b>(module, newState, data)
+					
+					</div>
+					<div class="description">
+						Sets the secondary state for the modules specified, with a newState and data for the callbacks initialized
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>module</b>
+									
+								</dt>
+								<dd>The name of the module that will have it's secondary state changed.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>newState</b>
+									
+								</dt>
+								<dd>This is the name of state that the</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object|String|Number|Array}</span> <b>data</b>
+									
+								</dt>
+								<dd>This is the name of stat</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Void|Boolean}</span> returns false incase data is missing.</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Feb 26 2013 15:55:31 GMT-0500 (EST)
+		</div>
+	</body>
+</html>
