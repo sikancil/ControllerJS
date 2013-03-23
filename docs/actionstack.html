@@ -1,0 +1,1103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - HS.Classes.ActionStack</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a>
+| <a href="../files.html">File Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/HS.html">HS</a></li>
+	
+	<li><a href="../symbols/HS.Classes.html">HS.Classes</a></li>
+	
+	<li><a href="../symbols/HS.Classes.ActionStack.html">HS.Classes.ActionStack</a></li>
+	
+	<li><a href="../symbols/HS.Classes.Channel.html">HS.Classes.Channel</a></li>
+	
+	<li><a href="../symbols/HS.Classes.State.html">HS.Classes.State</a></li>
+	
+	<li><a href="../symbols/HS.Controller.html">HS.Controller</a></li>
+	
+	<li><a href="../symbols/HS.Controller.PubSub.html">HS.Controller.PubSub</a></li>
+	
+	<li><a href="../symbols/HS.Controller.StateMachine.html">HS.Controller.StateMachine</a></li>
+	
+	<li><a href="../symbols/HS.Utils.html">HS.Utils</a></li>
+	
+	<li><a href="../symbols/HS.Utils.Controller.html">HS.Utils.Controller</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class HS.Classes.ActionStack
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				
+			
+				ActionStack is used for controlling task execution based on Last In First Out order
+				
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/_Users_brianmccann_hs-app_site_js_app_controller.js.html">controller.js</a>.
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class HS.Classes.ActionStack.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/HS.Classes.ActionStack.html#constructor">HS.Classes.ActionStack</a></b>()
+							</div>
+							<div class="description">The actionStack class is used for controlling the order of task execution and is based on Last In First Out.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class HS.Classes.ActionStack.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/HS.Classes.ActionStack.html#channels">channels</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/HS.Classes.ActionStack.html#defaultAction">defaultAction</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/HS.Classes.ActionStack.html#pairedAction">pairedAction</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/HS.Classes.ActionStack.html#stack">stack</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class HS.Classes.ActionStack.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Classes.ActionStack.<b><a href="../symbols/HS.Classes.ActionStack.html#.addToStack">addToStack</a></b>(data)
+								</div>
+								<div class="description">Pushes an action into the action stack making it the next action line unless another action is added.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Classes.ActionStack.<b><a href="../symbols/HS.Classes.ActionStack.html#.clearStack">clearStack</a></b>(returnStack)
+								</div>
+								<div class="description">Clears the stack data</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Classes.ActionStack.<b><a href="../symbols/HS.Classes.ActionStack.html#.close">close</a></b>(stackId)
+								</div>
+								<div class="description">Executes the actions needed to close a function</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Classes.ActionStack.<b><a href="../symbols/HS.Classes.ActionStack.html#.closed">closed</a></b>(chan)
+								</div>
+								<div class="description">signals to the actionStack a certain module is closed an it action will no longer need to be executed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Classes.ActionStack.<b><a href="../symbols/HS.Classes.ActionStack.html#.executeStack">executeStack</a></b>(stackId)
+								</div>
+								<div class="description">runs the action at the location stated by the stackId parameter.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Classes.ActionStack.<b><a href="../symbols/HS.Classes.ActionStack.html#.opened">opened</a></b>(chan, func, data, context)
+								</div>
+								<div class="description">runs the action at the location stated by the stackId parameter.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Classes.ActionStack.<b><a href="../symbols/HS.Classes.ActionStack.html#.removeFromStack">removeFromStack</a></b>(stackId)
+								</div>
+								<div class="description">Removes an action from the stack based on the actions position in the array.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Classes.ActionStack.<b><a href="../symbols/HS.Classes.ActionStack.html#.runStack">runStack</a></b>(stackId)
+								</div>
+								<div class="description">runs the action at the location stated by the stackId parameter.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Classes.ActionStack.<b><a href="../symbols/HS.Classes.ActionStack.html#.setDefaultAction">setDefaultAction</a></b>(newDefaultAction)
+								</div>
+								<div class="description">Sets the default action which will be executed when an actionStack is empty</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Classes.ActionStack.<b><a href="../symbols/HS.Classes.ActionStack.html#.setPairedAction">setPairedAction</a></b>(newPairedAction)
+								</div>
+								<div class="description">Sets the paired action which will be executed after any of action is finished executing.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Classes.ActionStack.<b><a href="../symbols/HS.Classes.ActionStack.html#.startStack">startStack</a></b>()
+								</div>
+								<div class="description">Starts the execution of actions currently in the action stack starting at the
+             0-array location and then clear out the array when finished.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>HS.Classes.ActionStack</b>()
+				</div>
+				
+				<div class="description">
+					The actionStack class is used for controlling the order of task execution and is based on Last In First Out.
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">Requires:</dt>
+						
+							<dd>Class</dd>
+						
+							<dd><a href="../symbols/HS.Controller.StateMachine.html">HS.Controller.StateMachine</a></dd>
+						
+						</dl>
+					
+					
+						<dl class="detailList">
+						<dt class="heading">See:</dt>
+						
+							<dd>HS.Controller.StateMachine.escapeStack</dd>
+						
+						</dl>
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="channels"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>channels</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="defaultAction"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>defaultAction</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="pairedAction"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>pairedAction</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="stack"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>stack</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".addToStack"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Number}</span>
+					<span class="light">HS.Classes.ActionStack.</span><b>addToStack</b>(data)
+					
+					</div>
+					<div class="description">
+						Pushes an action into the action stack making it the next action line unless another action is added.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>data</b>
+									
+								</dt>
+								<dd>this is the data used for the stack entry.
+             object parameters
+                 event: {String|Function},
+                 data: {Object},
+                 context: {Object}</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Number}</span> returns the id of the stack item which is based on the new objects position in the stack.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".clearStack"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Object|Undefined}</span>
+					<span class="light">HS.Classes.ActionStack.</span><b>clearStack</b>(returnStack)
+					
+					</div>
+					<div class="description">
+						Clears the stack data
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>returnStack</b>
+									
+								</dt>
+								<dd>Specifies if the cleared out stack should be returned or it should not return anything.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object|Undefined}</span> Contains either the old stacks data or undefined.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".close"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Number|Boolean}</span>
+					<span class="light">HS.Classes.ActionStack.</span><b>close</b>(stackId)
+					
+					</div>
+					<div class="description">
+						Executes the actions needed to close a function
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>stackId</b>
+									
+								</dt>
+								<dd>The stackId that will be executed.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Number|Boolean}</span> the stackId from the stack action that was executed or false if there is no action to run.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".closed"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Void}</span>
+					<span class="light">HS.Classes.ActionStack.</span><b>closed</b>(chan)
+					
+					</div>
+					<div class="description">
+						signals to the actionStack a certain module is closed an it action will no longer need to be executed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>chan</b>
+									
+								</dt>
+								<dd>The channel/module name that is closed. The string is associated with the stackId</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Void}</span> </dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".executeStack"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Number|Boolean}</span>
+					<span class="light">HS.Classes.ActionStack.</span><b>executeStack</b>(stackId)
+					
+					</div>
+					<div class="description">
+						runs the action at the location stated by the stackId parameter.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>stackId</b>
+									
+								</dt>
+								<dd>The stackId that will be executed.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Number|Boolean}</span> returns either the next id for the action to execute or false.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".opened"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Object}</span>
+					<span class="light">HS.Classes.ActionStack.</span><b>opened</b>(chan, func, data, context)
+					
+					</div>
+					<div class="description">
+						runs the action at the location stated by the stackId parameter.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>chan</b>
+									
+								</dt>
+								<dd>Name of channel that going to be added to the channel array</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Function}</span> <b>func</b>
+									
+								</dt>
+								<dd>Function that will be used to close the widget if escape is used or close is used</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>data</b>
+									
+								</dt>
+								<dd>Data passed to the event function when t issi==</dd>
+							
+								<dt>
+									<span class="light fixedFont">{object}</span> <b>context</b>
+									
+								</dt>
+								<dd>Used as "this" in the action's function</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Object}</span> returns the channel data that was just created by a plugins opening</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".removeFromStack"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Number|Boolean}</span>
+					<span class="light">HS.Classes.ActionStack.</span><b>removeFromStack</b>(stackId)
+					
+					</div>
+					<div class="description">
+						Removes an action from the stack based on the actions position in the array.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>stackId</b>
+									
+								</dt>
+								<dd>this is the data used for the stack entry.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Number|Boolean}</span> returns the id of the stack item which is based on the new objects position in the stack.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".runStack"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Number|Boolean}</span>
+					<span class="light">HS.Classes.ActionStack.</span><b>runStack</b>(stackId)
+					
+					</div>
+					<div class="description">
+						runs the action at the location stated by the stackId parameter.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>stackId</b>
+									
+								</dt>
+								<dd>The stackId that will be executed.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Number|Boolean}</span> the stackId from the stack action that was executed or false if there is no action to run.</dd>
+							
+							</dl>
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Requires:</dt>
+							
+								<dd>HS.Controller.PubSub.publish</dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".setDefaultAction"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Void}</span>
+					<span class="light">HS.Classes.ActionStack.</span><b>setDefaultAction</b>(newDefaultAction)
+					
+					</div>
+					<div class="description">
+						Sets the default action which will be executed when an actionStack is empty
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Function}</span> <b>newDefaultAction</b>
+									
+								</dt>
+								<dd>The new default action which will now
+             be executed when a stack is finished.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Void}</span> </dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setPairedAction"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Void}</span>
+					<span class="light">HS.Classes.ActionStack.</span><b>setPairedAction</b>(newPairedAction)
+					
+					</div>
+					<div class="description">
+						Sets the paired action which will be executed after any of action is finished executing.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Function}</span> <b>newPairedAction</b>
+									
+								</dt>
+								<dd>The new paired action which will now be
+             executed when a stack action has been completed.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Void}</span> </dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".startStack"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Void}</span>
+					<span class="light">HS.Classes.ActionStack.</span><b>startStack</b>()
+					
+					</div>
+					<div class="description">
+						Starts the execution of actions currently in the action stack starting at the
+             0-array location and then clear out the array when finished.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Void}</span> </dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Feb 26 2013 15:55:31 GMT-0500 (EST)
+		</div>
+	</body>
+</html>
