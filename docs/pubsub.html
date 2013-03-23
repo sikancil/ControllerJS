@@ -1,0 +1,1033 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - HS.Controller.PubSub</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a>
+| <a href="../files.html">File Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/HS.html">HS</a></li>
+	
+	<li><a href="../symbols/HS.Classes.html">HS.Classes</a></li>
+	
+	<li><a href="../symbols/HS.Classes.ActionStack.html">HS.Classes.ActionStack</a></li>
+	
+	<li><a href="../symbols/HS.Classes.Channel.html">HS.Classes.Channel</a></li>
+	
+	<li><a href="../symbols/HS.Classes.State.html">HS.Classes.State</a></li>
+	
+	<li><a href="../symbols/HS.Controller.html">HS.Controller</a></li>
+	
+	<li><a href="../symbols/HS.Controller.PubSub.html">HS.Controller.PubSub</a></li>
+	
+	<li><a href="../symbols/HS.Controller.StateMachine.html">HS.Controller.StateMachine</a></li>
+	
+	<li><a href="../symbols/HS.Utils.html">HS.Utils</a></li>
+	
+	<li><a href="../symbols/HS.Utils.Controller.html">HS.Utils.Controller</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class HS.Controller.PubSub
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				
+			
+				PubSub
+				
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/_Users_brianmccann_hs-app_site_js_app_controller.js.html">controller.js</a>.
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class HS.Controller.PubSub.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/HS.Controller.PubSub.html#constructor">HS.Controller.PubSub</a></b>()
+							</div>
+							<div class="description">Global implementation of PubSub methods used to synchronize states and execute the actions based on events.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class HS.Controller.PubSub.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/HS.Controller.PubSub.html#async">async</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;inner&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								HS.Controller.PubSub.<b><a href="../symbols/HS.Controller.PubSub.html#.channels">channels</a></b>
+								</div>
+								<div class="description">An object containing string: object pairs based on channel names and their respective data.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/HS.Controller.PubSub.html#channels">channels</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;inner&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								HS.Controller.PubSub.<b><a href="../symbols/HS.Controller.PubSub.html#.channelsList">channelsList</a></b>
+								</div>
+								<div class="description">An array containing the names of all the channels create and sub-channel byproducts</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/HS.Controller.PubSub.html#channelsList">channelsList</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/HS.Controller.PubSub.html#hasSubscribers">hasSubscribers</a></b>
+								</div>
+								<div class="description"></div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class HS.Controller.PubSub.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;inner&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.PubSub.<b><a href="../symbols/HS.Controller.PubSub.html#.$statics.async">$statics.async</a></b>(fn, data)
+								</div>
+								<div class="description">this function is used to execute a function asynchronously via setTimeout 0</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;inner&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.PubSub.<b><a href="../symbols/HS.Controller.PubSub.html#.$statics.hasSubscribers">$statics.hasSubscribers</a></b>(channel)
+								</div>
+								<div class="description">this function is used determine if a pubsub channel has subscribers at this time.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;inner&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.PubSub.<b><a href="../symbols/HS.Controller.PubSub.html#.createChannel">createChannel</a></b>(channel)
+								</div>
+								<div class="description">creates a new channel as well as any sub-channels</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;inner&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.PubSub.<b><a href="../symbols/HS.Controller.PubSub.html#.deliver">deliver</a></b>(channel, data)
+								</div>
+								<div class="description">executes the channels subscribers callbacks with a new set of data but
+             does not execute the sub-channels</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;inner&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.PubSub.<b><a href="../symbols/HS.Controller.PubSub.html#.publish">publish</a></b>(channel, data)
+								</div>
+								<div class="description">executes the channels subscribers callbacks with a new set of data but
+             does execute the sub-channels which is how it differs from deliver which is
+             focused on a single channel</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;inner&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.PubSub.<b><a href="../symbols/HS.Controller.PubSub.html#.subscribe">subscribe</a></b>(channel, cb)
+								</div>
+								<div class="description">subscribes to and potentially creates a channel while doing so.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;inner&gt; &lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">HS.Controller.PubSub.<b><a href="../symbols/HS.Controller.PubSub.html#.unsubscribe">unsubscribe</a></b>(channel, id)
+								</div>
+								<div class="description">subscribes to and potentially creates a channel while doing so.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>HS.Controller.PubSub</b>()
+				</div>
+				
+				<div class="description">
+					Global implementation of PubSub methods used to synchronize states and execute the actions based on events.
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">Requires:</dt>
+						
+							<dd><a href="../symbols/HS.Utils.Controller.html">HS.Utils.Controller</a></dd>
+						
+							<dd>Class</dd>
+						
+							<dd>HS.Classes.Channels</dd>
+						
+						</dl>
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="async"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Function}</span>
+					<b>async</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".channels"> </a>
+					<div class="fixedFont">&lt;inner&gt; &lt;static&gt; 
+					
+					
+					<span class="light">HS.Controller.PubSub.</span><b>channels</b>
+					
+					</div>
+					<div class="description">
+						An object containing string: object pairs based on channel names and their respective data.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="channels"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>channels</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".channelsList"> </a>
+					<div class="fixedFont">&lt;inner&gt; &lt;static&gt; 
+					
+					
+					<span class="light">HS.Controller.PubSub.</span><b>channelsList</b>
+					
+					</div>
+					<div class="description">
+						An array containing the names of all the channels create and sub-channel byproducts
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="channelsList"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String[]}</span>
+					<b>channelsList</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasSubscribers"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Function}</span>
+					<b>hasSubscribers</b>
+					
+					</div>
+					<div class="description">
+						
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".$statics.async"> </a>
+					<div class="fixedFont">&lt;inner&gt; &lt;static&gt; 
+					
+					
+					<span class="light">HS.Controller.PubSub.</span><b>$statics.async</b>(fn, data)
+					
+					</div>
+					<div class="description">
+						this function is used to execute a function asynchronously via setTimeout 0
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">    HS.Controller.PubSub.async(function() {
+                 console.log('doing stuff here');
+             });</pre>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Function}</span> <b>fn</b>
+									
+								</dt>
+								<dd>Required - the function to be executed by the setTimeout</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>data</b>
+									
+								</dt>
+								<dd>Optional - the data for fn if it is needed</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".$statics.hasSubscribers"> </a>
+					<div class="fixedFont">&lt;inner&gt; &lt;static&gt; 
+					
+					
+					<span class="light">HS.Controller.PubSub.</span><b>$statics.hasSubscribers</b>(channel)
+					
+					</div>
+					<div class="description">
+						this function is used determine if a pubsub channel has subscribers at this time.
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">    var IsEscapeSubscribed = HS.Controller.PubSub.hasSubscribers("User:Keyboard:Keydown:EscapeKey");</pre>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Function}</span> <b>channel</b>
+									
+								</dt>
+								<dd>Required - the name of the channel to get subscriber info from</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".createChannel"> </a>
+					<div class="fixedFont">&lt;inner&gt; &lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/HS.Controller.PubSub.html">HS.Controller.PubSub</a>}</span>
+					<span class="light">HS.Controller.PubSub.</span><b>createChannel</b>(channel)
+					
+					</div>
+					<div class="description">
+						creates a new channel as well as any sub-channels
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">    HS.Controller.PubSub.createChannel("User:Event:Hover:Title")
+             .createChannel("User:Event:Click:Plugin")</pre>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>channel</b>
+									
+								</dt>
+								<dd>The name of the channel</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/HS.Controller.PubSub.html">HS.Controller.PubSub</a>}</span> Returns itself so methods can be chained</dd>
+							
+							</dl>
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Requires:</dt>
+							
+								<dd>HS.Classes.Channel</dd>
+							
+							</dl>
+						
+						
+
+					<hr />
+				
+					<a name=".deliver"> </a>
+					<div class="fixedFont">&lt;inner&gt; &lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/HS.Controller.PubSub.html">HS.Controller.PubSub</a>}</span>
+					<span class="light">HS.Controller.PubSub.</span><b>deliver</b>(channel, data)
+					
+					</div>
+					<div class="description">
+						executes the channels subscribers callbacks with a new set of data but
+             does not execute the sub-channels
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">    HS.Controller.PubSub.deliver("User:Event:Click", { scores: [6,5,97,32,68,43,58,64,98,86], IsActive: false })</pre>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>channel</b>
+									
+								</dt>
+								<dd>The name of the channel</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>data</b>
+									
+								</dt>
+								<dd>used to execute a callback for this channel</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/HS.Controller.PubSub.html">HS.Controller.PubSub</a>}</span> Returns itself so methods can be chained</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/HS.Controller.PubSub.html#.publish">HS.Controller.PubSub.publish</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name=".publish"> </a>
+					<div class="fixedFont">&lt;inner&gt; &lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/HS.Controller.PubSub.html">HS.Controller.PubSub</a>}</span>
+					<span class="light">HS.Controller.PubSub.</span><b>publish</b>(channel, data)
+					
+					</div>
+					<div class="description">
+						executes the channels subscribers callbacks with a new set of data but
+             does execute the sub-channels which is how it differs from deliver which is
+             focused on a single channel
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">    HS.Controller.PubSub.deliver("User:Event:Click", { scores: [6,5,97,32,68,43,58,64,98,86], IsActive: false })</pre>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>channel</b>
+									
+								</dt>
+								<dd>The name of the channel</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>data</b>
+									
+								</dt>
+								<dd>used to execute a callback for this channel</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/HS.Controller.PubSub.html">HS.Controller.PubSub</a>}</span> Returns itself so methods can be chained</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/HS.Controller.PubSub.html#.deliver">HS.Controller.PubSub.deliver</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name=".subscribe"> </a>
+					<div class="fixedFont">&lt;inner&gt; &lt;static&gt; 
+					
+					<span class="light">{Number|Null}</span>
+					<span class="light">HS.Controller.PubSub.</span><b>subscribe</b>(channel, cb)
+					
+					</div>
+					<div class="description">
+						subscribes to and potentially creates a channel while doing so. The callback will be executes when
+             the channel is published or delivered to
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">    HS.Controller.PubSub.subscribe("User:Event:Click", callbackFunction)</pre>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>channel</b>
+									
+								</dt>
+								<dd>The name of the channel</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Function}</span> <b>cb</b>
+									
+								</dt>
+								<dd>Callback function executed when the channel is published to.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Number|Null}</span> Returns the subscription's id so it can be un-subscribed using this number in the future.</dd>
+							
+							</dl>
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Requires:</dt>
+							
+								<dd>HS.Utils.Controller.asteriskEnd</dd>
+							
+							</dl>
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/HS.Controller.PubSub.html#.publish">HS.Controller.PubSub.publish</a></dd>
+							
+								<dd><a href="../symbols/HS.Controller.PubSub.html#.createChannel">HS.Controller.PubSub.createChannel</a></dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name=".unsubscribe"> </a>
+					<div class="fixedFont">&lt;inner&gt; &lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/HS.Controller.PubSub.html">HS.Controller.PubSub</a>}</span>
+					<span class="light">HS.Controller.PubSub.</span><b>unsubscribe</b>(channel, id)
+					
+					</div>
+					<div class="description">
+						subscribes to and potentially creates a channel while doing so. The callback will be executes when
+             the channel is published or delivered to
+						
+						
+					</div>
+					
+					
+					
+					<pre class="code">    HS.Controller.PubSub.unsubscribe("User:Event:Click", channelId)</pre>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>channel</b>
+									
+								</dt>
+								<dd>The name of the channel</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>id</b>
+									
+								</dt>
+								<dd>The id of the subscribed function to help find it in the subscribers array..</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/HS.Controller.PubSub.html">HS.Controller.PubSub</a>}</span> Returns itself so methods can be chained</dd>
+							
+							</dl>
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/HS.Controller.PubSub.html#.publish">HS.Controller.PubSub.publish</a></dd>
+							
+								<dd><a href="../symbols/HS.Controller.PubSub.html#.createChannel">HS.Controller.PubSub.createChannel</a></dd>
+							
+							</dl>
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Feb 26 2013 15:55:31 GMT-0500 (EST)
+		</div>
+	</body>
+</html>
